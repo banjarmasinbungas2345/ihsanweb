@@ -2,23 +2,70 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
-
-    use Illuminate\Http\Request;  
-    use App\Http\Controllers\Controller;
+use App\Models\Mahasiswa;
+use Illuminate\Http\Request;
 
 class MahasiswaController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        $data = ['nama' => 'hitler', 'foto' =>'opp.jpeg'];
-        $mahasiswa = DB::table('mahasiswa')->get();
-        return view('mahasiswa.index', compact ('data', 'mahasiswa')); 
+        //
+        $data =['nama'=>'hitler','foto'=>'opp.jpeg'];
+        $mahasiswa = Mahasiswa::get();
+        return view('mahasiswa.index', compact(['data', 'mahasiswa']));
     }
 
-    public function show($id)
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
     {
+        //
+        $data = ['nama' => 'hitler', 'foto' => 'opp.jpeg'];
+        $prodi = Prodi::all();
+        return view('mahasiswa.create', compact(['data', 'prodi']));
+    }
 
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
     }
 }
-
